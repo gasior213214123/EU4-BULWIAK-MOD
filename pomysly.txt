@@ -1,0 +1,24 @@
+forest people {
+	req: own 20 forest provinces
+	reward: 
+}
+Todo Bichig {
+	req: Is buddist, have theologian advisor lvl 5
+	reward: technology cost reduction -10% forever
+}
+Four Oirats {
+	req: Historical provinces of Khoshut, Choros, Dorbet and Torghut ethnic groups
+	rewards: +1 HU for resst of the game
+}
+Conquer upper Tibet {
+	req: have upper tibet and lhasa, at least one owned province is bajrayana
+	rewards: trigger event that gives 2 stability OR changes religion to Vajrayana and gives +10% missionary strenght for 15 years
+}
+Oirati Buddhism {
+	req: Be buddhist and have 75%+ religious unity
+	reward: add theologian advisor lvl3 cost 50% less named "Zaya Pandita"
+}
+Subjegate Mongols {
+	req: no khalkha/chachar/mongol culture nations alive
+	reward: add khalkha/mongol culture as accepted
+}

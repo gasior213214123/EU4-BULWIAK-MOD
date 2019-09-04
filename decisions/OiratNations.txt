@@ -1,0 +1,254 @@
+country_decisions = {
+
+	khoshuud_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_khoshuud_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = MUG }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ZUN }
+			NOT = { exists = KSD }
+			OR = {
+				primary_culture = oirats
+				primary_culture = tibetan
+			}
+			has_reform = steppe_horde
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					OR = {
+						area = amdo_area
+						area = tsang_area
+						area = kham_area 
+					}
+				}
+			}
+		}
+		allow = {
+			NOT = { exists = KSD }
+			has_reform = steppe_horde
+			religion = vajrayana
+			amdo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tsang_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kham_area  = {
+				type = all
+				owned_by = ROOT
+			}
+
+			num_of_cities = 10
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+		}
+		effect = {
+			change_tag = KSD
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							has_idea_group = default_ideas
+						}
+					}
+				}
+				set_country_flag = formed_khoshuud_flag
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			tibet_region = {
+				add_permanent_claim = KSD
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	zhunghar_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_zhunghar_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = MUG }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { tag = MCH }
+			NOT = { exists = ZUN }
+			primary_culture = oirats
+			num_of_cities = 5
+			has_reform = steppe_horde
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					OR = {
+						area = turpan_kumul_area
+						area = zungaria_area
+						area = north_zungaria
+						area = altai_sayan_area 
+						province_id = 707 #yumen
+						province_id = 2123 #qakilik
+						province_id = 706 #tsaidam
+						province_id = 4204 #anding
+					}
+				}
+			}
+		}
+		allow = {
+			NOT = { exists = ZUN }
+			has_reform = steppe_horde
+			religion = vajrayana
+
+			adm_tech = 10
+			num_of_cities = 20
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+
+			turpan_kumul_area = {
+				type = all
+				owned_by = ROOT
+			}
+			zungaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			north_zungaria  = {
+				type = all
+				owned_by = ROOT
+			}
+			altai_sayan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 707 #yumen
+			owns_core_province = 2123 #qakilik
+			owns_core_province = 706 #tsaidam
+			owns_core_province = 4204 #anding
+
+			NOT = {
+				any_country = {
+					capital_scope = {
+						continent = asia
+					}
+					primary_culture = oirats
+					NOT = {
+						is_subject_of = ROOT
+						tag = ROOT
+					}
+				}
+			}
+		}
+
+		effect = {
+			change_tag = ZUN
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							has_idea_group = default_ideas
+						}
+					}
+				}
+				set_country_flag = formed_zhunghar_flag
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+
+			mongolia_region = {
+				add_permanent_claim = ZUN
+			}
+			amdo_area = {
+				add_permanent_claim = ZUN
+			}
+			shanshan_area = {
+				add_permanent_claim = ZUN
+			}
+			west_gansu_area = {
+				add_permanent_claim = ZUN
+			}
+			tarim_basin_area = {
+				add_permanent_claim = ZUN
+			}
+
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+}
